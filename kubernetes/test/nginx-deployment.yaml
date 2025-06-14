@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: umborg-web
+  namespace: umborg-web-test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: umborg-web
+  template:
+    metadata:
+      labels:
+        app: umborg-web
+    spec:
+      containers:
+        - name: umborg-web
+          image: andmo22/umborg-web:latest
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              memory: "128Mi"
+            limits:
+              memory: "512Mi"

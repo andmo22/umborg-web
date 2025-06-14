@@ -1,0 +1,7 @@
+services:
+  umborg-web:
+    image: nginx:alpine
+    ports:
+      - "8080:80"
+    volumes:
+      - ./export:/usr/share/nginx/html:ro
